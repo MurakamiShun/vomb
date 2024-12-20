@@ -3,7 +3,8 @@ module count_if::<N: const, T: type, PredOp: proto_pred_op>(
     b : input T[N],
     o : output logic<$clog2(N+1)>
 ){
-    var pred_result : logic<$clog2(N+1)>[N];
+    type result_type = logic<$clog2(N+1)>;
+    var pred_result : result_type[N];
     for n in 0..N : g_pred{
         inst pred : PredOp(
             a : a[n],
@@ -13,7 +14,7 @@ module count_if::<N: const, T: type, PredOp: proto_pred_op>(
         assign pred_result[n][$clog2(N+1)-1:1] = 0;
     }
 
-    inst accumulator : reduction::<N, T, binop_add>(
+    inst accumulator : reduction::<N, result_type, binop_add>(
         i : pred_result,
         o : o
     );

@@ -3,9 +3,9 @@
 
 ## example
 
-count min
+count less or equal 
 ```
-const N = 4;
+const N = 5;
 type element_t = logic<32>;
 
 let a : element_t[N] = {43, 73, 3, 433, 80};
