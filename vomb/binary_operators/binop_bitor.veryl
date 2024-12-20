@@ -1,0 +1,9 @@
+pub module binop_bitor for proto_binary_op #(
+    param T : type = utils::void_t
+)(
+    a : input T,
+    b : input T,
+    o : output T,
+){
+    assign o = a | b;
+}

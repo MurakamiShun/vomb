@@ -1,0 +1,21 @@
+module reduction::<N: const, T: type, BinOp: proto_binary_op>(
+    i : input T[N],
+    o : output T
+){
+    if N == 1 : num_item_check {
+        assign o = i[0];
+    } else {
+        var workspace : T[2*N-1];
+        assign workspace[N-1:0] = i;
+        for i in 0..(N-1) : bin_ops{
+            inst node : BinOp#(
+                T : T
+            )(
+                a : workspace[2*i],
+                b : workspace[2*i+1],
+                o : workspace[i+N],
+            );
+        }
+        assign o = workspace[2*N-2];
+    }
+}

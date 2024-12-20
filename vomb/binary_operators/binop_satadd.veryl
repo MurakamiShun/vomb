@@ -1,0 +1,15 @@
+// Saturation add
+pub module binop_satadd for proto_binary_op #(
+    param T : type = utils::void_t
+)(
+    a : input T,
+    b : input T,
+    o : output T,
+){
+    let sum : logic<$bits(T)+1> = a + b;
+    assign o = if sum[msb] {
+        '1
+    } else {
+        sum
+    };
+}

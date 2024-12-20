@@ -1,0 +1,5 @@
+[project]
+name = "vomb"
+version = "0.1.0"
+[build]
+target = {type = "directory", path = "target"}

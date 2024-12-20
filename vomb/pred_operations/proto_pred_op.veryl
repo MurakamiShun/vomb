@@ -1,0 +1,7 @@
+pub proto module proto_pred_op #(
+    param T : type = utils::void_t // dummy as prototype generics
+)(
+    a : input T,
+    b : input T,
+    o : output logic
+);

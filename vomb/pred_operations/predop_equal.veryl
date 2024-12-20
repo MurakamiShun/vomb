@@ -1,0 +1,9 @@
+pub module predop_equal for proto_pred_op #(
+    param T : type = utils::void_t
+)(
+    a : input T,
+    b : input T,
+    o : output logic,
+){
+    assign o = a == b;
+}

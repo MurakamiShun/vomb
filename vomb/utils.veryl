@@ -1,0 +1,5 @@
+pub package utils{
+    struct void_t{
+        _ : bit
+    }
+}
